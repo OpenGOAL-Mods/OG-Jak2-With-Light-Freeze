@@ -44,6 +44,15 @@ if the result of rand-vu-int-range is 1, then DANCE! if it is not 1, then Don't 
 
 ;; add your own unique custom functions here!
 
+(defun set-game-speed ((gamespeed float))
+  (update-rates! (-> *display* bg-clock) gamespeed)
+  (update-rates! (-> *display* entity-clock) gamespeed)
+  ;;(update-rates! (-> *display* target-clock) gamespeed)
+  ;;(update-rates! (-> *display* camera-clock) gamespeed)
+(none)
+)
+
+
 ;; Macros can be used more-or-less just like functions
 (defmacro current-cell-count ()
   `(-> *game-info* fuel)
@@ -328,6 +337,10 @@ if the result of rand-vu-int-range is 1, then DANCE! if it is not 1, then Don't 
 )
 (defun draw-light-blue ((jak target))
   (draw-xyz jak 0.0 3.0 3.0)
+)
+
+(defun draw-light-jak ((jak target))
+  (draw-xyz jak 10.0 255.0 500.0)
 )
 
 
