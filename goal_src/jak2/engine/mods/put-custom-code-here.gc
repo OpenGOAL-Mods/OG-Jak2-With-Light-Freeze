@@ -19,11 +19,14 @@
 
     ;;;;;;;;;;;;;;;;;;;;;;;;;;
     ;; Begin function defintions.
-    ;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;\
+    (defun-extern toggle-light-jak (none))
     (defun runs-every-frame ()
     ;;(increase-power-cell-by-one) This is a call to increase-power-cell-by-one defined in define-custom-functions-here.gc
-      
+
+      (if (cpad-pressed? 0 l3)
+      (toggle-light-jak)
+      )
       
       (none)
       )

@@ -37,10 +37,30 @@ if the result of rand-vu-int-range is 1, then DANCE! if it is not 1, then Don't 
 ;; Define Custom Variables to use in mods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(define is-light-jak? #f)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Define Custom Functions to call in mods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun-extern draw-light-jak target (float))
+(defun-extern draw-normal target (float))
+(defun-extern set-game-speed float (none))
+(defun toggle-light-jak ()
+(if (not is-light-jak?)
+(begin (set! is-light-jak? #t)
+(draw-light-jak *target*)
+(set-game-speed 0.2)
+)
+
+
+(begin (set! is-light-jak? #f)
+(draw-normal *target*)
+(set-game-speed 1.0)
+)
+
+)
+
+)
 
 ;; add your own unique custom functions here!
 
